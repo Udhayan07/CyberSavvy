@@ -1,0 +1,392 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #ffffff;
+  color: #333;
+  line-height: 1.6;
+}
+h1{
+  padding-top: 20px;
+}
+
+h2{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+header {
+  background: linear-gradient(120deg, #1e3c72, #2a5298);
+  color: white;
+  text-align: center;
+  
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+body {
+  padding-top: 160px; 
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  z-index: 999;
+  background: transparent;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 0;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.nav-list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(45deg, #ffffff, #4c6daf, #2196f3, #ffeb3b);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: movingColors 6s linear infinite;
+  opacity: 1;
+  
+}
+
+.nav-list li {
+  position: relative;
+}
+
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  transition: color 0.4s ease;
+}
+
+@keyframes movingColors {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
+.section {
+  min-height: 30vh;
+  margin: auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+
+
+.welcome-section {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #1e3c72 0%, #2a5298 20%, #ffffff 100%);
+  color: white;
+  display: flex;
+  
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-content {
+  margin-top: 5rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.welcome-content h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: fadeInDown 1.5s ease;
+}
+
+.welcome-content span {
+  color: #ffc107;
+}
+
+.welcome-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  animation: slideUp 2s ease;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #ffc107;
+  color: #222;
+  margin-top: 4rem;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+  animation: bounce 2s infinite;
+}
+
+.cta-button:hover {
+  background-color: #ffca2c;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+.card-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+ 
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1rem;
+  width: 300px;
+  min-height: 290px;
+  scroll-snap-align: start;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, #2196f3, #d2def2, #ffefed);
+  background-size: 300% 300%;
+  border-radius: 18px;
+  z-index: -1;
+  animation: borderAnimation 6s linear infinite;
+}
+
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card .card-back {
+  display: none;
+}
+
+.card.expanded .card-front {
+  display: none;
+}
+
+.card.expanded .card-back {
+  display: block;
+}
+
+.back-btn {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #1e3c72;
+}
+
+.section-quiz-box{
+  align-items: center;
+  margin: auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  background: linear-gradient(to top, #2954a5, #ffffff);
+}
+.quizcont{
+  max-width: 600px;
+  background: white;
+  max-width: 500px;
+  margin: auto;
+  min-height: 350px;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+#retry-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: #666;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#quiz-container p#question {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  font-weight: bold;
+  color: #222;
+  text-align: center;
+}
+.perfect-score {
+  color: #2e8b57;
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  animation: pop 0.6s ease-in-out;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+
+
+.options button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border: 2px solid #2a5298;
+  background: white;
+  color: #2a5298;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.options button:hover {
+  background: #2a5298;
+  color: white;
+}
+
+#next-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: #2a5298;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+canvas {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #111;
+  color: white;
+}
+
+.threatsection{
+  width: 600px;
+  align-items: center;
+  margin: auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  
+}
+.threatsss{
+  background: linear-gradient(to bottom, #2954a5, #ffffff);
+}

@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberSavvy 🔒</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</head>
+<body>
+  <header>
+    <h1>CyberSavvy 🔐</h1>
+    <p>Stay secure in the digital world</p>
+  <br>
+
+  <nav class="nnavbar">
+    <ul class="nav-list">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#tips">Tips</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+      <li><a href="#threats">Threat Analysis</a></li>
+    </ul>
+  </nav>
+</header>
+  
+
+  <main>
+    <section id="welcome" class="section welcome-section">
+      <div class="welcome-content">
+        <h2 class="fade-in">👋 Welcome to <span>CyberSavvy</span></h2>
+        <p class="slide-up">Your guide to staying safe and secure in the digital world.</p>
+        <p class="slide-up">Explore tips, take a fun quiz, and learn about real threats!</p>
+        <a href="#tips" class="cta-button bounce">Get Started</a>
+      </div>
+    </section>
+    
+    <section id="tips" class="section">
+      <h2>🧠 Safety Tips</h2>
+      <div class="card-container">
+        <div class="card" onclick="toggleCard(this)">
+          <div class="card-front">
+            <h3>Strong Passwords</h3>
+            <p>Use complex, unique passwords.</p>
+          </div>
+          <div class="card-back">
+            <span class="back-btn" onclick="event.stopPropagation(); toggleCard(this.closest('.card'));">← Back</span>
+            <p>Use at least 12 characters with a mix of uppercase, lowercase, numbers, and special symbols.</p>
+          </div>
+        </div>
+        <div class="card" onclick="toggleCard(this)">
+          <div class="card-front">
+            <h3>Recognize Scams</h3>
+            <p>Be skeptical of unknown messages.</p>
+          </div>
+          <div class="card-back">
+            <span class="back-btn" onclick="event.stopPropagation(); toggleCard(this.closest('.card'));">← Back</span>
+            <p>Never click suspicious links. Verify the sender before responding.</p>
+          </div>
+        </div>
+        <div class="card" onclick="toggleCard(this)">
+          <div class="card-front">
+            <h3>Privacy Settings</h3>
+            <p>Check your social media settings.</p>
+          </div>
+          <div class="card-back">
+            <span class="back-btn" onclick="event.stopPropagation(); toggleCard(this.closest('.card'));">← Back</span>
+            <p>Limit who can see your posts and personal info. Use private profiles when possible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="quiz" class="section-quiz-box">
+      <h2>🎯 Are You Safe Online?</h2>
+      <div class="quizcont">
+      <div id="quiz-container">
+        <p id="question">Loading...</p>
+        <div class="options" id="options-container"></div>
+        <button id="next-btn" onclick="nextQuestion()">Next</button>
+        <button id="retry-btn" onclick="restartQuiz()" style="display: none;">Retry</button>
+      </div>
+      </div>
+    </section>
+    
+
+    <section id="threats" class="threatsss">
+      <div class="threatsection">
+      <h2>📊 Common Cyber Threats</h2>
+      <canvas id="threatChart" width="600" height="400"></canvas>
+    </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CyberSavvy | Be Smart. Be Safe.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
